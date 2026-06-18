@@ -5,4 +5,4 @@
 //  Пока поле пустое — сайт работает в демо-режиме:
 //  показывает анимацию и сводку заказа, но никуда его не отправляет.
 // ============================================================
-const ORDERS_ENDPOINT = "";
+const ORDERS_ENDPOINT = "https://script.google.com/macros/s/AKfycbydnXLaOLwpxu_RrttY2CZ_05hbjsnuulORqouXH5ZyN7_-Rjy-IW77TWWm4W9qP7-H/exec";
