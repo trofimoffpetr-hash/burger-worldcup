@@ -18,6 +18,12 @@
         var field = group.closest('.field');
         if (field) field.classList.remove('invalid');
       } else {
+        // «без топпингов» / «без соуса» — взаимоисключающие с остальными
+        if (btn.hasAttribute('data-none')) {
+          group.querySelectorAll('.opt').forEach(function (o) { if (o !== btn) o.classList.remove('selected'); });
+        } else {
+          group.querySelectorAll('.opt[data-none]').forEach(function (o) { o.classList.remove('selected'); });
+        }
         btn.classList.toggle('selected');
       }
     });
