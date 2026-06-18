@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Burgers & World Cup · 26.06.2026</title>
+  <meta name="description" content="Бургер-пати с просмотром ЧМ-2026. Собери свой бургер!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ====================== HERO ====================== -->
+  <header class="hero reveal">
+    <div class="hero__glow"></div>
+    <div class="hero__emoji">🍔⚽</div>
+    <h1 class="hero__title">Burgers <span>&amp;</span> World&nbsp;Cup</h1>
+    <div class="hero__date">26.06.2026 · 19:00</div>
+    <a href="#builder" class="hero__cta">Собрать бургер ↓</a>
+  </header>
+
+  <main class="container">
+
+    <!-- ====================== ОПИСАНИЕ ====================== -->
+    <section class="card intro reveal">
+      <p>
+        Вы приглашены на <b>бургер-пати</b> с просмотром Чемпионата мира по футболу 2026! 🍔⚽
+      </p>
+      <p>
+        Соберите бургер своей мечты из ингредиентов ниже — а Петя по вашим заказам всё
+        закупит и приготовит. Чем раньше соберёте, тем вкуснее будет вечер. Ждём вас!
+      </p>
+    </section>
+
+    <!-- ====================== РАСПИСАНИЕ ====================== -->
+    <section class="reveal">
+      <h2 class="section-title">📺 Расписание матчей</h2>
+
+      <div class="legend">
+        <span class="legend__item legend--must">21:00 — обязательны к просмотру</span>
+        <span class="legend__item legend--optional">02:00 — по желанию</span>
+        <span class="legend__item legend--hardcore">05:00 — для самых стойких</span>
+      </div>
+
+      <div class="tier tier--must">
+        <div class="tier__head">Пт, 26 июня · 21:00 — обязательны к просмотру</div>
+        <div class="matches">
+          <div class="match">
+            <span class="match__side">🇳🇴 Норвегия</span>
+            <span class="match__vs">—</span>
+            <span class="match__side">Франция 🇫🇷</span>
+            <span class="match__group">Группа I</span>
+          </div>
+          <div class="match">
+            <span class="match__side">🇸🇳 Сенегал</span>
+            <span class="match__vs">—</span>
+            <span class="match__side">Ирак 🇮🇶</span>
+            <span class="match__group">Группа I</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tier tier--optional">
+        <div class="tier__head">Сб, 27 июня · 02:00 — по желанию</div>
+        <div class="matches">
+          <div class="match">
+            <span class="match__side">🇨🇻 Кабо-Верде</span>
+            <span class="match__vs">—</span>
+            <span class="match__side">Саудовская Аравия 🇸🇦</span>
+            <span class="match__group">Группа H</span>
+          </div>
+          <div class="match">
+            <span class="match__side">🇺🇾 Уругвай</span>
+            <span class="match__vs">—</span>
+            <span class="match__side">Испания 🇪🇸</span>
+            <span class="match__group">Группа H</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tier tier--hardcore">
+        <div class="tier__head">Сб, 27 июня · 05:00 — для самых стойких</div>
+        <div class="matches">
+          <div class="match">
+            <span class="match__side">🇳🇿 Новая Зеландия</span>
+            <span class="match__vs">—</span>
+            <span class="match__side">Бельгия 🇧🇪</span>
+            <span class="match__group">Группа G</span>
+          </div>
+          <div class="match">
+            <span class="match__side">🇪🇬 Египет</span>
+            <span class="match__vs">—</span>
+            <span class="match__side">Иран 🇮🇷</span>
+            <span class="match__group">Группа G</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== КОНСТРУКТОР ====================== -->
+    <section id="builder" class="reveal">
+      <h2 class="section-title">🍔 Собери свой бургер</h2>
+
+      <form id="burger-form" class="card builder" novalidate>
+
+        <!-- 1. Имя -->
+        <div class="field">
+          <label class="field__label" for="name">1. Как вас зовут?</label>
+          <input class="field__input" type="text" id="name" name="name"
+                 placeholder="Например, Петя" autocomplete="name" />
+          <div class="field__error" data-error="name">Пожалуйста, введите имя</div>
+        </div>
+
+        <!-- 2. Котлетки -->
+        <div class="field">
+          <label class="field__label">2. Сколько котлеток? <span class="field__hint">каждая ~100 г</span></label>
+          <div class="options" data-group="patties" data-mode="single">
+            <button type="button" class="opt opt--chef" data-value="1">
+              <span class="opt__chef">👨‍🍳 Выбор шефа</span>
+              <span class="opt__title">1 котлета</span>
+            </button>
+            <button type="button" class="opt" data-value="2">
+              <span class="opt__title">2 котлеты</span>
+            </button>
+            <button type="button" class="opt" data-value="3">
+              <span class="opt__title">3 котлеты</span>
+            </button>
+          </div>
+          <div class="field__error" data-error="patties">Выберите количество котлеток</div>
+        </div>
+
+        <!-- 3. Сыр -->
+        <div class="field">
+          <label class="field__label">3. Выбери сыр</label>
+          <div class="options" data-group="cheese" data-mode="single">
+            <button type="button" class="opt" data-value="без сыра">
+              <span class="opt__title">Без сыра</span>
+            </button>
+            <button type="button" class="opt" data-value="одинарный">
+              <span class="opt__title">Одинарный</span>
+            </button>
+            <button type="button" class="opt opt--chef" data-value="двойной">
+              <span class="opt__chef">👨‍🍳 Выбор шефа</span>
+              <span class="opt__title">Двойной</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 4. Топпинги -->
+        <div class="field">
+          <label class="field__label">4. Выбери топпинги <span class="field__hint">можно несколько</span></label>
+          <div class="options" data-group="toppings" data-mode="multi">
+            <button type="button" class="opt" data-value="бекон"><span class="opt__title">🥓 Бекон</span></button>
+            <button type="button" class="opt" data-value="помидор"><span class="opt__title">🍅 Помидор</span></button>
+            <button type="button" class="opt" data-value="салат"><span class="opt__title">🥬 Салат</span></button>
+            <button type="button" class="opt" data-value="лук свежий"><span class="opt__title">🧅 Лук свежий</span></button>
+            <button type="button" class="opt" data-value="лук карамелизированный"><span class="opt__title">🧅 Лук карамелизированный</span></button>
+            <button type="button" class="opt opt--chef" data-value="солёные огурчики">
+              <span class="opt__chef">👨‍🍳 Выбор шефа</span>
+              <span class="opt__title">🥒 Солёные огурчики</span>
+            </button>
+            <button type="button" class="opt" data-value="жареный лук с грибами"><span class="opt__title">🍄 Жареный лук с грибами</span></button>
+          </div>
+        </div>
+
+        <!-- 5. Соусы -->
+        <div class="field">
+          <label class="field__label">5. Выбери соусы <span class="field__hint">можно несколько</span></label>
+          <div class="options" data-group="sauces" data-mode="multi">
+            <button type="button" class="opt opt--chef" data-value="барбекю">
+              <span class="opt__chef">👨‍🍳 Выбор шефа</span>
+              <span class="opt__title">🍖 Барбекю</span>
+            </button>
+            <button type="button" class="opt" data-value="острый чили"><span class="opt__title">🌶️ Острый чили</span></button>
+            <button type="button" class="opt" data-value="сырный"><span class="opt__title">🧀 Сырный</span></button>
+            <button type="button" class="opt" data-value="майонез"><span class="opt__title">🥚 Майонез</span></button>
+            <button type="button" class="opt" data-value="кетчуп"><span class="opt__title">🍅 Кетчуп</span></button>
+            <button type="button" class="opt" data-value="коктейльный"><span class="opt__title">🍤 Коктейльный</span></button>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Сделать заказ 🍔</button>
+      </form>
+    </section>
+
+    <footer class="footer">Сделано с любовью к бургерам и футболу · 2026</footer>
+  </main>
+
+  <!-- ====================== ОВЕРЛЕЙ УСПЕХА ====================== -->
+  <div id="success" class="success" aria-hidden="true">
+    <div class="success__confetti" id="confetti"></div>
+    <div class="success__box">
+      <div class="success__burger">🍔</div>
+      <h2 class="success__title">🎉 Петя получил ваш заказ!</h2>
+      <p class="success__text">Ждём вас в гости в пятницу <b>26.06.2026 к 19:00</b></p>
+      <div class="success__summary" id="order-summary"></div>
+      <button type="button" class="success__close" id="success-close">Отлично!</button>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
