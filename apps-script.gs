@@ -12,9 +12,12 @@ function doPost(e) {
     var data = JSON.parse(e.postData.contents);
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
 
-    // создаём шапку при первом запуске
+    // шапка (создаём или поддерживаем актуальной — на случай новых столбцов)
+    var headers = ['Время', 'Имя', 'Котлетки', 'Сыр', 'Топпинги', 'Соусы', 'Напитки', 'Принесу сам'];
     if (sheet.getLastRow() === 0) {
-      sheet.appendRow(['Время', 'Имя', 'Котлетки', 'Сыр', 'Топпинги', 'Соусы']);
+      sheet.appendRow(headers);
+    } else {
+      sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
     }
 
     sheet.appendRow([
@@ -23,7 +26,9 @@ function doPost(e) {
       data.patties || '',
       data.cheese || '',
       (data.toppings || []).join(', '),
-      (data.sauces || []).join(', ')
+      (data.sauces || []).join(', '),
+      (data.drinks || []).join(', '),
+      data.byo || ''
     ]);
 
     return ContentService

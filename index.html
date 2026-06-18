@@ -117,11 +117,11 @@
         <div class="field">
           <label class="field__label">2. Сколько котлеток? <span class="field__hint">каждая ~100 г</span></label>
           <div class="options" data-group="patties" data-mode="single">
-            <button type="button" class="opt opt--chef" data-value="1">
-              <span class="opt__chef">👨‍🍳 Выбор шефа</span>
+            <button type="button" class="opt" data-value="1">
               <span class="opt__title">1 котлета</span>
             </button>
-            <button type="button" class="opt" data-value="2">
+            <button type="button" class="opt opt--chef" data-value="2">
+              <span class="opt__chef">👨‍🍳 Выбор шефа</span>
               <span class="opt__title">2 котлеты</span>
             </button>
             <button type="button" class="opt" data-value="3">
@@ -179,6 +179,32 @@
             <button type="button" class="opt" data-value="кетчуп"><span class="opt__title">🍅 Кетчуп</span></button>
             <button type="button" class="opt" data-value="коктейльный"><span class="opt__title">🍤 Коктейльный</span></button>
           </div>
+        </div>
+
+        <!-- 6. Напитки -->
+        <div class="field">
+          <label class="field__label">6. Напитки <span class="field__hint">укажите количество бутылок</span></label>
+          <div class="drinks">
+            <div class="drink" data-drink="Пиво">
+              <span class="drink__name">🍺 Пиво</span>
+              <div class="stepper">
+                <button type="button" class="stepper__btn" data-step="-1" aria-label="убавить">−</button>
+                <span class="stepper__val" data-count>0</span>
+                <button type="button" class="stepper__btn" data-step="1" aria-label="прибавить">+</button>
+              </div>
+            </div>
+            <div class="drink" data-drink="Кока-кола">
+              <span class="drink__name">🥤 Кока-кола</span>
+              <div class="stepper">
+                <button type="button" class="stepper__btn" data-step="-1" aria-label="убавить">−</button>
+                <span class="stepper__val" data-count>0</span>
+                <button type="button" class="stepper__btn" data-step="1" aria-label="прибавить">+</button>
+              </div>
+            </div>
+          </div>
+          <label class="drinks__byo-label" for="byo">Принесу сам</label>
+          <input class="field__input" type="text" id="byo" name="byo"
+                 placeholder="Например: вино, сок, безалкогольное пиво…" />
         </div>
 
         <button type="submit" class="submit-btn">Сделать заказ 🍔</button>

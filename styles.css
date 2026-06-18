@@ -239,6 +239,46 @@ body {
   box-shadow: 0 4px 10px rgba(245,179,1,.45);
 }
 
+/* напитки + степпер */
+.drinks { display: flex; flex-wrap: wrap; gap: 10px; }
+.drink {
+  flex: 1 1 calc(50% - 10px);
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  background: var(--bg-2);
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+.drink.has-qty { border-color: var(--mustard); box-shadow: 0 6px 18px rgba(245,179,1,.18); }
+.drink__name { font-weight: 700; font-size: 15px; }
+
+.stepper { display: flex; align-items: center; gap: 4px; }
+.stepper__btn {
+  width: 34px; height: 34px;
+  display: grid; place-items: center;
+  font-family: inherit; font-size: 20px; font-weight: 800; line-height: 1;
+  cursor: pointer;
+  color: var(--text);
+  background: var(--card-2);
+  border: 1.5px solid var(--line);
+  border-radius: 9px;
+  transition: border-color .15s ease, background .15s ease, transform .1s ease;
+}
+.stepper__btn:hover { border-color: var(--mustard); }
+.stepper__btn:active { transform: scale(.92); }
+.stepper__val {
+  min-width: 26px; text-align: center;
+  font-weight: 800; font-size: 16px;
+  font-variant-numeric: tabular-nums;
+}
+
+.drinks__byo-label {
+  display: block;
+  font-weight: 700; font-size: 14px;
+  color: var(--muted);
+  margin: 16px 0 8px;
+}
+
 /* кнопка заказа */
 .submit-btn {
   width: 100%;

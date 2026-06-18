@@ -23,6 +23,19 @@
     });
   });
 
+  // ---------- степперы напитков ----------
+  document.querySelectorAll('.drink').forEach(function (drink) {
+    var val = drink.querySelector('[data-count]');
+    drink.querySelectorAll('.stepper__btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var step = parseInt(btn.getAttribute('data-step'), 10);
+        var n = Math.max(0, (parseInt(val.textContent, 10) || 0) + step);
+        val.textContent = n;
+        drink.classList.toggle('has-qty', n > 0);
+      });
+    });
+  });
+
   // снятие ошибки имени при вводе
   var nameInput = document.getElementById('name');
   nameInput.addEventListener('input', function () {
@@ -37,6 +50,14 @@
   function getMulti(groupName) {
     var sels = document.querySelectorAll('.options[data-group="' + groupName + '"] .opt.selected');
     return Array.prototype.map.call(sels, function (o) { return o.getAttribute('data-value'); });
+  }
+  function getDrinks() {
+    var out = [];
+    document.querySelectorAll('.drink').forEach(function (drink) {
+      var n = parseInt(drink.querySelector('[data-count]').textContent, 10) || 0;
+      if (n > 0) out.push(drink.getAttribute('data-drink') + ' ×' + n);
+    });
+    return out;
   }
 
   // ---------- отправка заказа ----------
@@ -70,6 +91,8 @@
       cheese: getSingle('cheese') || 'без сыра',
       toppings: getMulti('toppings'),
       sauces: getMulti('sauces'),
+      drinks: getDrinks(),
+      byo: document.getElementById('byo').value.trim(),
       ts: new Date().toISOString()
     };
 
@@ -119,7 +142,9 @@
       '<b>Котлетки:</b> ' + esc(order.patties),
       '<b>Сыр:</b> ' + esc(order.cheese),
       '<b>Топпинги:</b> ' + (order.toppings.length ? esc(order.toppings.join(', ')) : '—'),
-      '<b>Соусы:</b> ' + (order.sauces.length ? esc(order.sauces.join(', ')) : '—')
+      '<b>Соусы:</b> ' + (order.sauces.length ? esc(order.sauces.join(', ')) : '—'),
+      '<b>Напитки:</b> ' + (order.drinks.length ? esc(order.drinks.join(', ')) : '—'),
+      '<b>Принесу сам:</b> ' + (order.byo ? esc(order.byo) : '—')
     ];
     box.innerHTML = lines.join('<br>');
   }
